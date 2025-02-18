@@ -1,5 +1,7 @@
 # Talbot
 
+![Talbot Logo](./img/Talbot.png)
+
 This repository contains the code of the tool developed as a part of the master's thesis "Evaluation of Virtual to Physical Address Translation". It focuses on reverse engineering the translation caches implemented by Intel.
 
 ## Structure
