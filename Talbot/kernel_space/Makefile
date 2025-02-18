@@ -5,11 +5,15 @@ all: talbot.ko
 obj-m += talbot.o
 talbot-objs += src/module.o
 talbot-objs += src/paging.o
+talbot-objs += src/eviction_sets.o
+talbot-objs += src/hash_functions.o
 talbot-objs += src/experiments.o
 talbot-objs += src/kernel_functions.o
+talbot-objs += src/pointer_chasing.o
+talbot-objs += src/replacement.o
 talbot-objs += src/evaluation.o
-talbot-objs += src/hyperthreaded.o
 talbot-objs += src/cpu_instructions.o
+talbot-objs += ../shared/src/tlb.o
 
 ccflags-y += -I$(PWD)/include -I$(PWD)/../shared/include -std=gnu99
 

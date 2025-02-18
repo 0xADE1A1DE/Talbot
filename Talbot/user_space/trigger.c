@@ -226,7 +226,7 @@ int main()
 	_mm_lfence();
 	_mm_mfence();
 
-	volatile int dev = open("/dev/trcrt", O_RDWR);
+	volatile int dev = open("/dev/talbot", O_RDWR);
 	if(dev < 0)
 	{
 		printf("[-] Failed to open device!\n");

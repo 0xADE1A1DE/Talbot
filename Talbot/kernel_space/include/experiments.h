@@ -16,7 +16,6 @@ int test_huge_tlb(int level);
 void test_huge_page_eviction(int level);
 int test_supported_pcids(int level, int amount_pcids, int noflush);
 int test_pcid_respect(int level);
-int test_hyperthreaded_pcid_support(int level);
 
 
 #endif

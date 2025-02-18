@@ -1,12 +1,12 @@
-all: trigger trcrt
+all: trigger talbot
 
-trcrt:
+talbot:
 	cd kernel_space/; $(MAKE) clean; $(MAKE)
 
 trigger:
 	cd user_space/; $(MAKE) clean; $(MAKE); cp trigger $(PWD)
 
-.PHONY: trcrt trigger clean
+.PHONY: talbot trigger clean
 
 clean:
 	rm -f trigger;
@@ -17,14 +17,14 @@ run:
 	sudo ./trigger
 
 destroy:
-	sudo rmmod trcrt 2>/dev/null || true
+	sudo rmmod talbot 2>/dev/null || true
 
 ready:
-	sudo insmod kernel_space/trcrt.ko
+	sudo insmod kernel_space/talbot.ko
 
 test:
 	$(MAKE) trigger;
-	$(MAKE) trcrt;
+	$(MAKE) talbot;
 	$(MAKE) destroy;
 	$(MAKE) ready;
 	$(MAKE) run;

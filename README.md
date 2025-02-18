@@ -1,4 +1,4 @@
-# Translation Cache Reversing Tool - TRCRT
+# Talbot
 
 This repository contains the code of the tool developed as a part of the master's thesis "Evaluation of Virtual to Physical Address Translation". It focuses on reverse engineering the translation caches implemented by Intel.
 
@@ -6,7 +6,7 @@ This repository contains the code of the tool developed as a part of the master'
 
 This repository is split into three different parts:
 
-- TRCRT, which contains the code for the automated tool itself
+- Talbot, which contains the code for the automated tool itself
 - CacheQuery, which contains the code for a tool to conveniently query translation caches for manual analysis
 - CrossHyperthread, which separately implements a cross-hyperthread experiment
 

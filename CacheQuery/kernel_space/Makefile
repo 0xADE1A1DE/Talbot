@@ -1,22 +1,22 @@
 BUILD ?= obj
 
-all: trcrt.ko
+all: query.ko
 
-obj-m += trcrt.o
-trcrt-objs += src/module.o
-trcrt-objs += src/paging.o
-trcrt-objs += src/hash_functions.o
-trcrt-objs += src/kernel_functions.o
-trcrt-objs += src/cpu_instructions.o
-trcrt-objs += src/query.o
+obj-m += query.o
+query-objs += src/module.o
+query-objs += src/paging.o
+query-objs += src/hash_functions.o
+query-objs += src/kernel_functions.o
+query-objs += src/cpu_instructions.o
+query-objs += src/query.o
 
 ccflags-y += -I$(PWD)/include -I$(PWD)/../shared/include -std=gnu99
 
-deps += $(trcrt-objs:.o=.d)
+deps += $(query-objs:.o=.d)
 
 -include $(deps)
 
-trcrt.ko:
+query.ko:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
 $(BUILD)/%.o: %.c

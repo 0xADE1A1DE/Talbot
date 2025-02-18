@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 	_mm_lfence();
 	_mm_mfence();
 
-	volatile int dev = open("/dev/trcrt", O_RDWR);
+	volatile int dev = open("/dev/query", O_RDWR);
 	if(dev < 0)
 	{
 		printf("[-] Failed to open device!\n");

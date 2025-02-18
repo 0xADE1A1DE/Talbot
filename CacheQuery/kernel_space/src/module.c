@@ -53,7 +53,7 @@ static struct file_operations fops =
 static struct miscdevice misc_dev =
 {
 	.minor = MISC_DYNAMIC_MINOR,
-	.name = "trcrt",
+	.name = "query",
 	.fops = &fops,
 	.mode = S_IRWXUGO,
 };
@@ -64,11 +64,11 @@ int init_module(void)
 
 	ret = misc_register(&misc_dev);
 	if (ret != 0) {
-		printk(KERN_ALERT "[-] trcrt: failed to register device with %d\n", ret);
+		printk(KERN_ALERT "[-] CacheQuery: failed to register device with %d\n", ret);
 		return -1;
 	}
 
-	printk(KERN_INFO "[*] trcrt: initialized.\n");
+	printk(KERN_INFO "[*] CacheQuery: initialized.\n");
 
 	return 0;
 }
@@ -76,9 +76,9 @@ int init_module(void)
 void cleanup_module(void)
 {
 	misc_deregister(&misc_dev);
-	printk(KERN_INFO "[*] trcrt: cleaned up.\n");
+	printk(KERN_INFO "[*] CacheQuery: cleaned up.\n");
 }
 
 MODULE_AUTHOR("Philipp Ertmer");
-MODULE_DESCRIPTION("Translation Cache Reversing Tool");
+MODULE_DESCRIPTION("Manual Translation Cache Reversing Tool");
 MODULE_LICENSE("GPL");

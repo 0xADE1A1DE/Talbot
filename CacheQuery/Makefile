@@ -1,12 +1,12 @@
-all: trigger trcrt
+all: trigger query
 
-trcrt:
+query:
 	cd kernel_space/; $(MAKE) clean; $(MAKE)
 
 trigger:
 	cd user_space/; $(MAKE) clean; $(MAKE); cp trigger $(PWD)
 
-.PHONY: trcrt trigger clean
+.PHONY: query trigger clean
 
 clean:
 	rm -f trigger;
@@ -18,14 +18,14 @@ run:
 	sudo dmesg | tail
 
 destroy:
-	sudo rmmod trcrt 2>/dev/null || true
+	sudo rmmod query 2>/dev/null || true
 
 ready:
-	sudo insmod kernel_space/trcrt.ko
+	sudo insmod kernel_space/query.ko
 
 test:
 	$(MAKE) trigger;
-	$(MAKE) trcrt;
+	$(MAKE) query;
 	$(MAKE) destroy;
 	$(MAKE) ready;
 	$(MAKE) run;
